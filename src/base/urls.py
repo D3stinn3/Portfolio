@@ -6,4 +6,7 @@ from . import views
 
 urlpatterns = [
     path('portfolio/', views.home_page, name="home"),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
